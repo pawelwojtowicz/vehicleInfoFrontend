@@ -1,11 +1,16 @@
-var app = angular.module("vehicleInfoPage", [ "leaflet-directive" , "ngWebsocket" ]);
+var app = angular.module("vehicleInfoPage", [ "leaflet-directive" , "angular-websocket" ]);
 
-app.service( 'backendStreamService', ["$websocket" , function() {
+
+
+app.service( 'backendStreamService', ["$websocket" , function($websocket) {
 	var vm = this;
 	vm.listeners = [];
 	vm.connStateListener = [];
 
-	var dataStream = $websocket("ws://" + windows.location.host +"/webfeed");
+	var url = "ws://" + location.host +"/webfeed";
+	console.log(url);
+
+	var dataStream = $websocket(url);
 
 	dataStream.onMessage(message , function(message) {
 		var vhInfo = JSON.parse(message);
@@ -15,6 +20,7 @@ app.service( 'backendStreamService', ["$websocket" , function() {
 	});
 
 	dataStream.onOpen( function() {
+		console.log("connection opened");
 		vm.connStateListener.forEach( function(callback) {
 			callback(true);		
 		});	
@@ -40,6 +46,9 @@ app.service( 'backendStreamService', ["$websocket" , function() {
 	};
 }]);
 
+app.controller( 'speedController' , ['backendStreamService', function(backendStreamService){
+
+}]);
 
 
 
