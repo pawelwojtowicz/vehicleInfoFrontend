@@ -114,10 +114,12 @@ module.exports = function(grunt) {
         'output/js/angular-material.min.js':'angular-material/angular-material.min.js',
         'output/js/angular-animate.min.js':'angular-animate/angular-animate.min.js',
         'output/js/angular-aria.min.js':'angular-aria/angular-aria.min.js',
+	'output/js/leaflet.js' : 'leaflet/dist/leaflet.js',
 	'output/js/angular-leaflet-directive.min.js': 'angular-leaflet-directive/dist/angular-leaflet-directive.min.js',
 	'output/js/angular-websocket.min.js': 'angular-websocket/dist/angular-websocket.min.js',
 	'output/js/angular-websocket.min.js.map': 'angular-websocket/dist/angular-websocket.min.js.map',
         'output/css/angular-material.min.css':'angular-material/angular-material.min.css',
+	'output/css/leaflet.css' : 'leaflet/dist/leaflet.css',
         'output/css/app.css':'../css/app.css'
       }
       },
@@ -128,9 +130,11 @@ module.exports = function(grunt) {
           'output/js/angular-material.min.js':'angular-material/angular-material.min.js',
           'output/js/angular-animate.min.js':'angular-animate/angular-animate.min.js',
           'output/js/angular-aria.min.js':'angular-aria/angular-aria.min.js',
+	  'output/js/leaflet.js' : 'leaflet/dist/leaflet.js',  
           'output/js/angular-leaflet-directive.min.js': 'angular-leaflet-directive/dist/angular-leaflet-directive.min.js',
           'output/js/angular-websocket.min.js': 'angular-websocket/dist/angular-websocket.min.js',
-          'output/css/angular-material.min.css':'angular-material/angular-material.min.css',
+	  'output/css/leaflet.css' : 'leaflet/dist/leaflet.css',          
+	  'output/css/angular-material.min.css':'angular-material/angular-material.min.css',
           'output/css/app.css':'../css/app.css'
         }
       }  

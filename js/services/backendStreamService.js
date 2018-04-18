@@ -1,0 +1,52 @@
+(function () {
+    'use strict';
+var app = angular.module('vehicleInfoPage');
+
+app.service( 'backendStreamService', ["$websocket" , function($websocket) {
+	var vm = this;
+	vm.listeners = [];
+	vm.connStateListener = [];
+
+	var url = "ws://" + location.host +"/webfeed";
+	var dataStream = $websocket(url);
+
+	dataStream.onMessage( function(message) {
+		var vhInfo = JSON.parse(message);
+		vm.listeners.forEach( function(callback) {
+			callback(vhInfo);		
+		});	
+	});
+
+
+	dataStream.onOpen( function() {
+		console.log("connection opened");
+		vm.connStateListener.forEach( function(callback) {
+			callback(true);		
+		});	
+
+	});
+
+	dataStream.onClose( function() {
+		vm.connStateListener.forEach( function(callback) {
+			callback(false);		
+		});	
+	});
+
+	dataStream.onError( function(error) {
+		console.log("Error" +JSON.stringify(error));	
+	});
+
+	vm.sendData = function(data) {
+		dataStream.send(JSON.stringify(data));	
+	};
+
+	vm.registerVhInfoListener = function( listener ) {
+		vm.listeners.push( listener);	
+	};
+
+	vm.registerConnStateListener = function( listener ) {
+		vm.connStateListener.push(listener);
+	};
+}]);
+
+}());

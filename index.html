@@ -1,17 +1,43 @@
 <!DOCTYPE html>
-<html ng-app="vehicleInfoPage">
+<html>
 <head>
 <meta charset="utf-8">
+<link rel="stylesheet" href="css/leaflet.css" crossorigin=""/>
+<link rel="stylesheet" href="css/angular-material.min.css">
 <link rel="stylesheet" type="text/css" href="css/app.css">
 <script src="js/angular.min.js"></script>
 <script src="js/angular-websocket.min.js"></script>
+<script src="js/leaflet.js"></script>
 <script src="js/angular-leaflet-directive.min.js"></script>
 <script src="js/vehicleinfofrontend.min.js"></script>
+<!--XXX Live reload placeholder XXX-->
 </head>
-<body>
-This is a test implementation!.
-<div ng-controller="speedController">
-</div>
+<body ng-app="vehicleInfoPage" layout="column">
+<md-content flex layout-padding>
+    
+            <md-toolbar>
+                <h1>This is Trapeze Demo for Tell Tales visualization</h1>
+            </md-toolbar>
+
+            <div layout="row">
+                <div width="20%" ng-controller="vehicleListNaviController as vm">
+                    <md-list >
+                        <md-list-item ng-repeat="option in vm.menu">
+                            <md-button ng-click="vm.showVehicle($index)">{{option.caption}}</md-button>     
+                        </md-list-item>
+                    </md-list>    
+                </div>
+
+                <md-content flex layout-padding>
+			<div ng-controller="mapController as vm">sslkdjflskjdflksjdf
+
+			  <leaflet markers="vm.busMark" lf-center="vm.vhPosition" tiles="vm.tiles" defaults="defaults" width="100%" height="600px"></leaflet>
+			</div>     
+                        <div ng-view></div>                    
+                </md-content>
+            </div>
+</md-content>
+
 
 </body>
 </html>
