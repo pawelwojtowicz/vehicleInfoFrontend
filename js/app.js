@@ -12,7 +12,7 @@ app.service( 'backendStreamService', ["$websocket" , function($websocket) {
 
 	var dataStream = $websocket(url);
 
-	dataStream.onMessage(message , function(message) {
+	dataStream.onMessage( function(message) {
 		var vhInfo = JSON.parse(message);
 		vm.listeners.forEach( function(callback) {
 			callback(vhInfo);		
@@ -31,6 +31,10 @@ app.service( 'backendStreamService', ["$websocket" , function($websocket) {
 		vm.connStateListener.forEach( function(callback) {
 			callback(false);		
 		});	
+	});
+
+	dataStream.onError( function(error) {
+		console.log("Error" +JSON.stringify(error));	
 	});
 
 	vm.sendData = function(data) {
