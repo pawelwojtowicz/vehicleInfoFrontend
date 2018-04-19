@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-var app = angular.module("vehicleInfoPage", [ "leaflet-directive" , "angular-websocket" ]);
+var app = angular.module("vehicleInfoPage", [ "ngMaterial","angular-websocket" ]);
 
 }());
 
