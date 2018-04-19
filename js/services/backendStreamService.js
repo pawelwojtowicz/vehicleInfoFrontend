@@ -4,17 +4,27 @@ var app = angular.module('vehicleInfoPage');
 
 app.service( 'backendStreamService', ["$websocket" , function($websocket) {
 	var vm = this;
-	vm.listeners = [];
+	vm.vhListlisteners = [];
+	vm.vhInfoListeners = [];
 	vm.connStateListener = [];
 
 	var url = "ws://" + location.host +"/webfeed";
 	var dataStream = $websocket(url);
 
 	dataStream.onMessage( function(message) {
-		var vhInfo = JSON.parse(message);
-		vm.listeners.forEach( function(callback) {
-			callback(vhInfo);		
-		});	
+	  console.log(message);
+		var command = JSON.parse(message.data);
+
+
+		if ( 'vhListUpdate' === command.type) {
+			vm.vhListlisteners.forEach( function(callback) {
+				callback(command.data);		
+			});		
+		} else if ('vhInfoUpdate' === command.type) {
+			vm.vhInfoListeners.forEach( function(callback) {
+				callback(command.data);
+			});
+		}
 	});
 
 
@@ -40,8 +50,12 @@ app.service( 'backendStreamService', ["$websocket" , function($websocket) {
 		dataStream.send(JSON.stringify(data));	
 	};
 
-	vm.registerVhInfoListener = function( listener ) {
-		vm.listeners.push( listener);	
+	vm.registerVhListListener = function( listener ) {
+		vm.vhListlisteners.push( listener);	
+	};
+	
+	vm.registerVhInfoListeners = function( listener ) {
+	  vm.vhInfoListeners.push( listener);
 	};
 
 	vm.registerConnStateListener = function( listener ) {

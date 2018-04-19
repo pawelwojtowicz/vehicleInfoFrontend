@@ -1,32 +1,34 @@
 (function () {
-    'use strict';
-    
-    var app = angular.module('vehicleInfoPage');
-    
-    app.controller('vehicleListNaviController',[ 'backendStreamService',function(backendStreamService){
-      var vm = this;
-    
-      vm.menu = [ { caption: "Vehicle1" , vehicleId: "1"} , 
-                  { caption: "Vehicle2" , vehicleId: "2"} ,
-                  { caption: "Vehicle3" , vehicleId: "3"} ,
-                  { caption: "Vehicle4" , vehicleId: "4"} ,
-                  { caption: "Vehicle5" , vehicleId: "5"} ];
-        
-        
+  'use strict';
 
-      
-      vm.showVehicle = function( index ) {
-        var menuItem = vm.menu[index];
+  var app = angular.module('vehicleInfoPage');
 
-	var showVhCommand = {
-		cmd: "showVh",
-		vhId: menuItem.vehicleId 
-	};
+  app.controller('vehicleListNaviController',[ 'backendStreamService',function(backendStreamService){
+    var vm = this;
 
-	backendStreamService.sendData(showVhCommand);
+    vm.menu = [];
+    vm.updateVehicleList = function( vhList) {
+      vm.menu = [];
+      vhList.forEach( function( vehicleEntry ) {
+        var newVehicle = { caption: vehicleEntry , vehicleId : vehicleEntry };
+        vm.menu.push( newVehicle );
+      });
+    };                
+     
+
+
+    vm.showVehicle = function( index ) {
+      var menuItem = vm.menu[index];
+      var showVhCommand = {
+        cmd: "vhSelection",
+        selectedVehicleId: menuItem.vehicleId 
       };
 
-
-    }]);
+      backendStreamService.sendData(showVhCommand);
+    };
+    
+    backendStreamService.registerVhListListener(vm.updateVehicleList);
+    
+  }]);
 
 }());

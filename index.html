@@ -30,8 +30,13 @@
         </md-list>
       </div>
      </md-sidenav>
-     <md-content id="content" flex>
-     slkjflk;jlafj;sldkfja;lskdjf;laksjdf;lkajsd;flkja;slkdjf;alksjdf;lkajsdf;lkjs;lkdfja;lksdjf;laksjd;flkajsf
+     <md-content id="content" flex>   
+       <div ng-controller="vehicleInfoController as vm">
+         <table border="1">
+           <tr><td>Name</td><td>Value</td></tr>
+           <tr ng-repeat="infoItem in vm.vhInfo"><td>{{infoItem.name}}</td><td>{{infoItem.val}}</td></tr>
+         </table>
+       </div>
      </md-content>
     </div>
     
