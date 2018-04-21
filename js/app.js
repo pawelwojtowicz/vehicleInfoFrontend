@@ -10,7 +10,15 @@ app.config(['$routeProvider' , function($routeProvider) {
 		controllerAs: 'vm',
 		bindToController: true,
 		replace: true
-	}).otherwise({
+	}).
+	when('/srvstats', {
+		templateUrl: 'partials/srvStats.html',
+		controller: 'srvStatsController',
+		controllerAs: 'vm',
+		bindToController: true,
+		replace: true
+	}).
+	otherwise({
 		redirectTo: '/baseinfo'	
 	});
 }]);

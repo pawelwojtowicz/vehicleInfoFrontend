@@ -1,0 +1,18 @@
+<div>
+	<table border="1">
+		<tr>
+			<td>Name</td>
+			<td>Client Count</td>
+			<td>Message Count</td>
+			<td>Data Volume</td>
+			<td>Heartbeat</td>
+		</tr>
+		<tr ng-repeat="srvInfo in vm.srvList">
+			<td>{{srvInfo.serverName}}</td>
+			<td>{{srvInfo.clientCount}}</td>
+			<td>{{srvInfo.messageCount}}</td>
+			<td>{{srvInfo.dataVolume}}</td>
+			<td>{{srvInfo.timeStamp}}</td>
+		</tr>
+	</table>
+</div>

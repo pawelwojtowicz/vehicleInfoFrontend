@@ -7,14 +7,13 @@ app.service( 'backendStreamService', ["$websocket" , function($websocket) {
 	vm.vhListlisteners = [];
 	vm.vhInfoListeners = [];
 	vm.connStateListener = [];
+	vm.srvStatsListeners = [];
 
 	var url = "ws://" + location.host +"/webfeed";
 	var dataStream = $websocket(url);
 
 	dataStream.onMessage( function(message) {
-	  console.log(message);
 		var command = JSON.parse(message.data);
-
 
 		if ( 'vhListUpdate' === command.type) {
 			vm.vhListlisteners.forEach( function(callback) {
@@ -22,6 +21,10 @@ app.service( 'backendStreamService', ["$websocket" , function($websocket) {
 			});		
 		} else if ('vhInfoUpdate' === command.type) {
 			vm.vhInfoListeners.forEach( function(callback) {
+				callback(command.data);
+			});
+		} else if ( 'srvStatsUpdate' === command.type ) {
+			vm.srvStatsListeners.forEach( function(callback ) {
 				callback(command.data);
 			});
 		}
@@ -56,6 +59,10 @@ app.service( 'backendStreamService', ["$websocket" , function($websocket) {
 	
 	vm.registerVhInfoListeners = function( listener ) {
 	  vm.vhInfoListeners.push( listener);
+	};
+
+	vm.registerSrvStatsListener = function ( listener ) {
+	  vm.srvStatsListeners.push(listener);
 	};
 
 	vm.registerConnStateListener = function( listener ) {

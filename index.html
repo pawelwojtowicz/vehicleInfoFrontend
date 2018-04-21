@@ -16,9 +16,11 @@
   <!--XXX Live reload placeholder XXX-->
 
   <md-content flex layout-padding>
-    <md-toolbar>
-      This is a supported toolbar
+  <div ng-controller="headerController as vm">
+    <md-toolbar >
+      <h1 ng-click="vm.showServerStats()">{{vm.header}}</h1>
     </md-toolbar>
+  </div>
     
     <div class="container" layout="row">
      <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">

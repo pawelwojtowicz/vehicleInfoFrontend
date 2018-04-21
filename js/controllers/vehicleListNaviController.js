@@ -3,7 +3,7 @@
 
   var app = angular.module('vehicleInfoPage');
 
-  app.controller('vehicleListNaviController',[ 'backendStreamService',function(backendStreamService){
+  app.controller('vehicleListNaviController',[ 'backendStreamService','navigationService',function(backendStreamService,navigationService){
     var vm = this;
 
     vm.menu = [];
@@ -15,8 +15,6 @@
       });
     };                
      
-
-
     vm.showVehicle = function( index ) {
       var menuItem = vm.menu[index];
       var showVhCommand = {
@@ -25,6 +23,7 @@
       };
 
       backendStreamService.sendData(showVhCommand);
+      navigationService.showVehicleInfo();
     };
     
     backendStreamService.registerVhListListener(vm.updateVehicleList);
