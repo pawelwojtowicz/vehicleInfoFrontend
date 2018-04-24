@@ -1,6 +1,27 @@
-<div>
-	<table border="1">
-		<tr><td>Name</td><td>Value</td></tr>
-		<tr ng-repeat="infoItem in vm.vhInfo"><td>{{infoItem.name}}</td><td>{{infoItem.val}}</td></tr>
-	</table>
+    Vehicle Id: {{vm.vhName}}<br/>
+    Timestamp: {{vm.heartbeatTimestamp}}<br/>
+    Position: {{vm.vhPosition}}<br/>
+    Speed: {{vm.vhSpeed}}<br/>
+
+<div ng-cloak>
+<md-content>
+	<md-tabs>
+		<md-tab label="Tell Tales">
+			<md-content>
+				<table border="1">
+					<tr><td>ID</td><td>Name</td><td>Value</td></tr>
+					<tr ng-repeat="tellTale in vm.tellTales"><td>{{tellTale.id}}</td><td>{{tellTale.name}}</td><td>{{tellTale.status}}</td></tr>
+				</table>
+			</md-content>	
+		</md-tab>		
+		<md-tab label="Device messages">
+			<md-content>
+				<table border="1">
+					<tr><td>Name</td><td>Value</td></tr>
+					<tr ng-repeat="infoItem in vm.vhInfo"><td>{{infoItem.name}}</td><td>{{infoItem.val}}</td></tr>
+				</table>	
+			</md-content>	
+		</md-tab>	
+	</md-tabs>
+</md-content>
 </div>
