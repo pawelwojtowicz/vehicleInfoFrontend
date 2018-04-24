@@ -34,8 +34,10 @@ md-list-item > button {
   }
 
   #parameterContainer {
-    height: 300px;
+    height: 100%
     width: 90%;
+
+
     align-items: center;
     justify-content: center
 
@@ -71,3 +73,38 @@ md-list-item > button {
   
  .md-virtual-repeat-container .md-virtual-repeat-offsetter div {
 padding-left: 16px; }
+
+
+
+.datatable {
+  width: 90%;
+  border: 1px solid #d6dde6;
+  border-collapse: collapse;
+  margin: auto;
+  list-style-type: none;
+}
+
+.datatable td {
+  border: none; 
+  padding: 0.3em;
+}
+
+.datatable th {
+  border: none; 
+  background-color: #bcbcbc;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 0.3em;
+}
+
+.datatable caption {
+  font: bold 110% Arial, Helvetica, sans-serif;
+  color: #33517a;
+  text-align: left;
+  padding: 0.4em 0 0.8em 0;
+}
+
+.datatable tr:nth-child(odd) {
+  background-color: #dfe7f2;
+  color: #000000;
+}

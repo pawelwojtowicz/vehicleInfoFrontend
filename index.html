@@ -26,7 +26,7 @@
      <md-sidenav md-is-locked-open="true" class="md-whiteframe-4dp">
       <div ng-controller="vehicleListNaviController as vm">
         <md-list>
-          <md-list-item ng-repeat="vehicleEntry in vm.menu">
+          <md-list-item ng-repeat="vehicleEntry in vm.menu | orderBy:'caption'">
             <md-button ng-click="vm.showVehicle($index)">{{vehicleEntry.caption}}</md-button>
           </md-list-item>
         </md-list>

@@ -1,15 +1,22 @@
-    Vehicle Id: {{vm.vhName}}<br/>
-    Timestamp: {{vm.heartbeatTimestamp}}<br/>
-    Position: {{vm.vhPosition}}<br/>
-    Speed: {{vm.vhSpeed}}<br/>
-
-<div ng-cloak>
+<md-list ng-cloak>
+<md-list-item><p>Vehicle Id</p><md-button class="md-secondary" ng-style="{width:20%}" >{{vm.vhName}}</md-button></md-list-item>
+<md-list-item><p>Timestamp</p><md-button class="md-secondary" ng-style="{width:20%}" >{{vm.heartbeatTimestamp}}</md-button></md-list-item>
+</md-list>
+<div>
 <md-content>
 	<md-tabs>
+		<md-tab label="Position">
+			<md-content>
+				<md-list ng-cloak>
+					<md-list-item><p>Position</p><md-button class="md-secondary" ng-style="{width:20%}" >{{vm.vhPosition}}</md-button></md-list-item>
+					<md-list-item><p>Speed</p><md-button class="md-secondary" ng-style="{width:20%}" >{{vm.vhSpeed}}</md-button></md-list-item>
+				</md-list>
+			</md-content>	
+		</md-tab>		
 		<md-tab label="Tell Tales">
 			<md-content>
-				<table border="1">
-					<tr><td>ID</td><td>Name</td><td>Value</td></tr>
+				<table class='datatable'>
+					<tr><th>ID</th><th>Name</th><th>Value</th></tr>
 					<tr ng-repeat="tellTale in vm.tellTales"><td>{{tellTale.id}}</td><td>{{tellTale.name}}</td><td>{{tellTale.status}}</td></tr>
 				</table>
 			</md-content>	

@@ -13,7 +13,6 @@ app.service( 'tellTalesService', [ function() {
   statusMapping.set(0x07, "n/a");
   
   vm.getStatusText = function ( status ) {
-    console.log("we check the state" + status);
     var statusTxt = statusMapping.get(status);
     if (null === statusTxt) {
       statusTxt = "undef";	

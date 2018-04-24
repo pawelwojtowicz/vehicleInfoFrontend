@@ -25,7 +25,6 @@
 	    for ( var key in info ) {
 		    if ( info.hasOwnProperty(key) && key.startsWith('tt') ) {
 	        var ttId = parseInt(key.substring(2));
-	         console.log( "this was obtained - " + ttId );
 	         
 	         var entry = skeleton.get(ttId);
 	         
