@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-var app = angular.module("vehicleInfoPage", [ "ngMaterial","angular-websocket" , "ngRoute" ]);
+var app = angular.module("vehicleInfoPage", [ "ngMaterial","angular-websocket","leaflet-directive" , "ngRoute" ]);
 
 app.config(['$routeProvider' , function($routeProvider) {
 	$routeProvider.

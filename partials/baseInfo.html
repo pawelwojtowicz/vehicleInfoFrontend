@@ -1,15 +1,16 @@
 <md-list ng-cloak>
-<md-list-item><p>Vehicle Id</p><md-button class="md-secondary" ng-style="{width:20%}" >{{vm.vhName}}</md-button></md-list-item>
-<md-list-item><p>Timestamp</p><md-button class="md-secondary" ng-style="{width:20%}" >{{vm.heartbeatTimestamp}}</md-button></md-list-item>
+<md-list-item><p>Vehicle Id</p><md-button class="md-secondary" >{{vm.vhName}}</md-button></md-list-item>
+<md-list-item><p>Timestamp</p><md-button class="md-secondary" >{{vm.heartbeatTimestamp}}</md-button></md-list-item>
 </md-list>
 <div>
 <md-content>
-	<md-tabs>
+	<md-tabs md-dynamic-height md-border-bottom>
 		<md-tab label="Position">
 			<md-content>
+				<leaflet markers="vm.busMark" lf-center="vm.vhPosition" tiles="vm.tiles" defaults="defaults" width="100%" height="600px"></leaflet>
 				<md-list ng-cloak>
-					<md-list-item><p>Position</p><md-button class="md-secondary" ng-style="{width:20%}" >{{vm.vhPosition}}</md-button></md-list-item>
-					<md-list-item><p>Speed</p><md-button class="md-secondary" ng-style="{width:20%}" >{{vm.vhSpeed}}</md-button></md-list-item>
+					<md-list-item><p>Position</p><md-button class="md-secondary"  >{{vm.vhPosition}}</md-button></md-list-item>
+					<md-list-item><p>Speed</p><md-button class="md-secondary" >{{vm.vhSpeed}}</md-button></md-list-item>
 				</md-list>
 			</md-content>	
 		</md-tab>		

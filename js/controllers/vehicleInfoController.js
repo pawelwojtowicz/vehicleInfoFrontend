@@ -10,6 +10,20 @@
     vm.heartbeatTimestamp = "";
     vm.vhPosition = "";
     vm.vhSpeed = "";
+
+    vm.tiles = {
+      url: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+      options: {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }
+    };
+    
+    vm.vhPosition = {
+      lat: 51.1552819,
+      lng: 16.8978038,
+      zoom: 18
+    };
+
     
     vm.tellTales = [];
     
@@ -18,7 +32,20 @@
 	    vm.vhName = info.name;
 	    vm.heartbeatTimestamp = info.timestamp;
 	    vm.vhSpeed = info.speed;
-	    vm.vhPosition = JSON.parse(info.position);
+	    var position = JSON.parse(info.position);
+	//    vm.vhPosition.lat = position.latitude;
+	//    vm.vhPosition.lng = position.longitude;
+	    
+      vm.busMark = {
+        bus1: {
+          lat: vm.vhPosition.lat,
+          lng: vm.vhPosition.lng,
+          message: "Bus",
+          focus: true,
+          draggable: false
+        }
+      };
+ 
 	    
 	    var skeleton = tellTalesService.getTellTalesStructure();
       
