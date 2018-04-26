@@ -1,5 +1,5 @@
 <div>
-	<table border="1">
+	<table class='datatable'>
 		<tr>
 			<td>Name</td>
 			<td>Client Count</td>
@@ -7,7 +7,7 @@
 			<td>Data Volume</td>
 			<td>Heartbeat</td>
 		</tr>
-		<tr ng-repeat="srvInfo in vm.srvList">
+		<tr ng-repeat="srvInfo in vm.srvList | orderBy:'serverName'">
 			<td>{{srvInfo.serverName}}</td>
 			<td>{{srvInfo.clientCount}}</td>
 			<td>{{srvInfo.messageCount}}</td>
