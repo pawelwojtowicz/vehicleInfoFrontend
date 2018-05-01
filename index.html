@@ -30,7 +30,7 @@
       <div ng-controller="vehicleListNaviController as vm">
         <md-list>
           <md-list-item ng-repeat="vehicleEntry in vm.menu | orderBy:'caption'">
-            <md-button ng-click="vm.showVehicle($index)">{{vehicleEntry.caption}}</md-button>
+            <md-button ng-click="vm.showVehicle(vehicleEntry.vehicleId)">{{vehicleEntry.caption}}</md-button>
           </md-list-item>
         </md-list>
       </div>

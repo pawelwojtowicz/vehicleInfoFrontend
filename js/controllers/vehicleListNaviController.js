@@ -15,11 +15,10 @@
       });
     };                
      
-    vm.showVehicle = function( index ) {
-      var menuItem = vm.menu[index];
+    vm.showVehicle = function( selectedVehicleId ) {
       var showVhCommand = {
         cmd: "vhSelection",
-        selectedVehicleId: menuItem.vehicleId 
+        selectedVehicleId: selectedVehicleId 
       };
 
       backendStreamService.sendData(showVhCommand);
