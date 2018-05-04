@@ -35,10 +35,10 @@
 	    var position = JSON.parse(info.position);
 	//    vm.vhPosition.lat = position.latitude;
 	//    vm.vhPosition.lng = position.longitude;
-	    vm.dashboard.speed = info.dashboard.speed;
-	    vm.dashboard.bat_soc = info.dashboard.bat_soc;
-	    vm.analyses.estimated_range_inservice = info.analyses.estimated_range_inservice;
-	    vm.analyses.estimated_time_inservice = info.analyses.estimated_time_inservice;
+	    vm.dashboard.speed = info.dashboard_speed;
+	    vm.dashboard.bat_soc = info.dashboard_bat_soc;
+	    vm.analyses.estimated_range_inservice = info.analyses_estimated_range_inservice;
+	    vm.analyses.estimated_time_inservice = info.analyses_estimated_time_inservice;
 	
 	    
       vm.busMark = {
