@@ -21,7 +21,7 @@
 					<tr ng-repeat="tellTale in vm.tellTales"><td>{{tellTale.id}}</td><td>{{tellTale.name}}</td><td>{{tellTale.status}}</td></tr>
 				</table>
 			</md-content>	
-		</md-tab>		
+		</md-tab>
 		<md-tab label="Device messages">
 			<md-content>
 				<table border="1">
@@ -30,6 +30,17 @@
 				</table>	
 			</md-content>	
 		</md-tab>	
+		<md-tab label="Viriciti Integration">
+			<md-content>
+				<md-list ng-cloak>
+				<md-list-item><p>Vehicle speed</p><md-button class="md-secondary" >{{vm.dashboard.speed}}</md-button></md-list-item>
+				<md-list-item><p>Batery state of charge</p><md-button class="md-secondary" >{{vm.dashboard.bat_soc}}</md-button></md-list-item>
+				<md-list-item><p>Estimated range in service</p><md-button class="md-secondary" >{{vm.analyses.estimated_range_inservice}}</md-button></md-list-item>
+				<md-list-item><p>Estimated time in service</p><md-button class="md-secondary" >{{vm.analyses.estimated_time_inservice}}</md-button></md-list-item>
+				</md-list>			
+			</md-content>	
+		</md-tab>	
+
 	</md-tabs>
 </md-content>
 </div>
