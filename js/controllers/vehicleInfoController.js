@@ -27,18 +27,21 @@
     
     vm.tellTales = [];
     
-    vm.updateVehicleInfo = function( info) {	
+    vm.updateVehicleInfo = function( info) {
 	    
 	    vm.vhName = info.name;
 	    vm.heartbeatTimestamp = info.timestamp;
 	    vm.vhSpeed = info.speed;
-	    var position = JSON.parse(info.position);
-	//    vm.vhPosition.lat = position.latitude;
-	//    vm.vhPosition.lng = position.longitude;
-	    vm.dashboard.speed = info.dashboard_speed;
-	    vm.dashboard.bat_soc = info.dashboard_bat_soc;
-	    vm.analyses.estimated_range_inservice = info.analyses_estimated_range_inservice;
-	    vm.analyses.estimated_time_inservice = info.analyses_estimated_time_inservice;
+	    var position = { longitude: vm.vhPosition.lng , latitude: vm.vhPosition.lat };
+	    if ( undefined !== info.position) {
+	      position = JSON.parse(info.position);
+	      vm.vhPosition.lat = position.latitude;
+	      vm.vhPosition.lng = position.longitude;
+	    }
+	    vm.dashboard_speed = info.dashboard_speed;
+	    vm.dashboard_bat_soc = info.dashboard_bat_soc;
+	    vm.analyses_estimated_range_inservice = info.analyses_estimated_range_inservice;
+	    vm.analyses_estimated_time_inservice = info.analyses_estimated_time_inservice;
 	
 	    
       vm.busMark = {

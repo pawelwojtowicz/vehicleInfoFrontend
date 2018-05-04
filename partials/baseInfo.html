@@ -33,10 +33,10 @@
 		<md-tab label="Viriciti Integration">
 			<md-content>
 				<md-list ng-cloak>
-				<md-list-item><p>Vehicle speed</p><md-button class="md-secondary" >{{vm.dashboard.speed}}</md-button></md-list-item>
-				<md-list-item><p>Batery state of charge</p><md-button class="md-secondary" >{{vm.dashboard.bat_soc}}</md-button></md-list-item>
-				<md-list-item><p>Estimated range in service</p><md-button class="md-secondary" >{{vm.analyses.estimated_range_inservice}}</md-button></md-list-item>
-				<md-list-item><p>Estimated time in service</p><md-button class="md-secondary" >{{vm.analyses.estimated_time_inservice}}</md-button></md-list-item>
+				<md-list-item><p>Vehicle speed</p><md-button class="md-secondary" >{{vm.dashboard_speed | number : 1}}</md-button></md-list-item>
+				<md-list-item><p>Batery state of charge</p><md-button class="md-secondary" >{{vm.dashboard_bat_soc | number : 1}}</md-button></md-list-item>
+				<md-list-item><p>Estimated range in service</p><md-button class="md-secondary" >{{vm.analyses_estimated_range_inservice | number : 1}}</md-button></md-list-item>
+				<md-list-item><p>Estimated time in service</p><md-button class="md-secondary" >{{vm.analyses_estimated_time_inservice | number : 1}}</md-button></md-list-item>
 				</md-list>			
 			</md-content>	
 		</md-tab>	
