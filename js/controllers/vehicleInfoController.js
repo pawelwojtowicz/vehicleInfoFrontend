@@ -25,11 +25,13 @@
     };
 
     /** chart configuration */
-    vm.labels = ["January", "February", "March", "April", "May", "June", "July"];
-    vm.series = ['Series A', 'Series B'];    
+    vm.currLabel = 1;
+    vm.labels = [1];
+    vm.series = ['IBISHost', 'DataExchange', 'Navi'];    
     vm.data = [
-      [65, 59, 80, 81, 56, 55, 40],
-      [28, 48, 40, 19, 86, 27, 90]
+      [15],
+      [10],
+      [100]
     ];
     vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
     vm.options = {
@@ -57,6 +59,15 @@
     vm.tellTales = [];
     
     vm.updateVehicleInfo = function( info) {
+      vm.currLabel = vm.currLabel+1;
+      
+      if (vm.currLabel % 5 === 0) {  
+        vm.labels.push(vm.currLabel);
+        vm.data[0].push( 12.5 + 5*Math.random() );
+        vm.data[1].push( 10 + 5*Math.random() );
+        vm.data[2].push( 50 + 50*Math.random() );
+      }
+      console.log(vm.data);
 	    
 	    vm.vhName = info.name;
 	    vm.heartbeatTimestamp = info.timestamp;
