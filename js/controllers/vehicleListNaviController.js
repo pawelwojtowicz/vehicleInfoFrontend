@@ -9,9 +9,12 @@
     vm.menu = [];
     vm.updateVehicleList = function( vhList) {
       vm.menu = [];
+      console.log(JSON.stringify(vhList));
       vhList.forEach( function( vehicleEntry ) {
-        var newVehicle = { caption: vehicleEntry , vehicleId : vehicleEntry };
-        vm.menu.push( newVehicle );
+        if ( vehicleEntry !== 'serverList') {
+          var newVehicle = { caption: vehicleEntry , vehicleId : vehicleEntry };
+          vm.menu.push( newVehicle );
+        }
       });
     };                
      
