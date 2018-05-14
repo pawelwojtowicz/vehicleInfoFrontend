@@ -35,6 +35,7 @@
     ];
     vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
     vm.options = {
+      animation: false, 
       scales: {
         yAxes: [
           {
